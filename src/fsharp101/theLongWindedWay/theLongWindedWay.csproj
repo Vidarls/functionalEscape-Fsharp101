@@ -62,6 +62,12 @@
     <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TheTerseAndElegantWay\TheTerseAndElegantWay.fsproj">
+      <Project>{1bbbc2e9-887d-4ce9-b630-c6be5884d278}</Project>
+      <Name>TheTerseAndElegantWay</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

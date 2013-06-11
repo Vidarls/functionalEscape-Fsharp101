@@ -2,25 +2,24 @@
 
 namespace theLongWindedWay
 {
-    public class Name : IEquatable<Name>
+    public class Name : IEquatable<Name> , IComparable<Name>
     {
         private readonly string _lastName;
         private readonly string _firstName;
-
-        public string LastName
-        {
-            get { return _lastName; }
-        }
-
-        public string FirstName
-        {
-            get { return _firstName; }
-        }
+        public string LastName {get { return _lastName; }}
+        public string FirstName {get { return _firstName; }}
 
         public Name(string lastName, string firstName)
         {
             _lastName = lastName;
             _firstName = firstName;
+        }
+
+        public int CompareTo(Name other)
+        {
+            var lastNameCompare = System.String.Compare(this.LastName, other.LastName, System.StringComparison.Ordinal);
+            var firstNameCompare = System.String.Compare(this.FirstName, other.FirstName, System.StringComparison.Ordinal);
+            return lastNameCompare != 0 ? lastNameCompare : firstNameCompare;
         }
 
         public override string ToString()
@@ -45,10 +44,7 @@ namespace theLongWindedWay
 
         public override int GetHashCode()
         {
-            unchecked
-            {
-                return (_lastName.GetHashCode()*397) ^ _firstName.GetHashCode();
-            }
+            unchecked { return (_lastName.GetHashCode()*397) ^ _firstName.GetHashCode();}
         }
 
         public static bool operator ==(Name left, Name right)
