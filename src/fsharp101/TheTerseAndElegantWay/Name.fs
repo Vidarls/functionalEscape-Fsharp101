@@ -10,3 +10,8 @@
                     member x.FirstName = sprintf "%s from interface" x.FirstName
 
             
+    module TestModule =
+        let t = {new IName with 
+                    member x.LastName = "A random name"    
+                    member x.FirstName = "More randomness"
+                }
