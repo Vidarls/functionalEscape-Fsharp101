@@ -2,7 +2,13 @@
 
 namespace theLongWindedWay
 {
-    public class Name : IEquatable<Name> , IComparable<Name>
+    public interface IName
+    {
+        string LastName { get; }
+        string FirstName { get; }
+    }
+
+    public class Name : IEquatable<Name> , IComparable<Name>, IName
     {
         private readonly string _lastName;
         private readonly string _firstName;
